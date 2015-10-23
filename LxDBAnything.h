@@ -26,7 +26,7 @@
 #ifdef DEBUG
     #define LxPrintf(fmt, ...)  printf("🎈%s L.%d📍 %s\n", __PRETTY_FUNCTION__, __LINE__, [[NSString stringWithFormat:fmt, ##__VA_ARGS__]UTF8String])
     #define LxDBAnyVar(any)     LxPrintf(@"%s = %@", #any, LxBoxValue(any))
-    #define LxPrintAnyMark(x)   printf("%s\n",#x)
+    #define LxPrintAnyMark(x)   printf("🎈%s L.%d📍 %s\n", __PRETTY_FUNCTION__, __LINE__, #x)
 #else
     #define LxPrintf(fmt, ...)
     #define LxDBAnyVar(any)
