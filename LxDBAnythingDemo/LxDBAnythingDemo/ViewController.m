@@ -58,7 +58,7 @@
     char c = 'S';
     LxDBAnyVar(c);
     
-    LxPrintAnyMark(You can use macro LxPrintAnyMark print any without quotation as you want!);
+    LxPrintAnySymbol(You can use macro LxPrintAnySymbol print any without quotation as you want!);
     
     LxPrintf(@"Print format string you customed: %@", LxBox(affineTransform));
     
