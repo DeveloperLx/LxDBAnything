@@ -15,8 +15,6 @@
     {
         [super viewDidLoad];
 
-        LxPrintAnyMark(Write here any as you want!);
-
         id obj = self.view;
         LxDBAnyVar(obj);
 
@@ -55,6 +53,12 @@
 
         char c = 'S';
         LxDBAnyVar(c);
+
+        LxPrintAnyMark(You can use macro LxPrintAnyMark print any without quotation as you want!);
+
+        LxPrintf(@"Print format string you customed: %@", LxBox(affineTransform));
+
+        NSLog(@"Even use normal NSLog function to print: %@", LxBox(edgeInsets));
 
         ......
     }

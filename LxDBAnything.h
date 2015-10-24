@@ -21,11 +21,11 @@
     #define valueWithLxEdgeInsets   valueWithNSEdgeInsets
 #endif
 
-#define LxBoxValue(value) _LxBoxValue(@encode(__typeof__((value))), (value))
+#define LxBox(value) _LxBox(@encode(__typeof__((value))), (value))
 
 #ifdef DEBUG
     #define LxPrintf(fmt, ...)  printf("🎈%s L.%d📍 %s\n", __PRETTY_FUNCTION__, __LINE__, [[NSString stringWithFormat:fmt, ##__VA_ARGS__]UTF8String])
-    #define LxDBAnyVar(any)     LxPrintf(@"%s = %@", #any, LxBoxValue(any))
+    #define LxDBAnyVar(any)     LxPrintf(@"%s = %@", #any, LxBox(any))
     #define LxPrintAnyMark(x)   printf("🎈%s L.%d📍 %s\n", __PRETTY_FUNCTION__, __LINE__, #x)
 #else
     #define LxPrintf(fmt, ...)
@@ -33,7 +33,7 @@
     #define LxPrintAnyMark(x)
 #endif
 
-static inline id _LxBoxValue(const char * type, ...)
+static inline id _LxBox(const char * type, ...)
 {
     va_list v;
     va_start(v, type);
@@ -63,6 +63,10 @@ static inline id _LxBoxValue(const char * type, ...)
     else if (strcmp(type, @encode(NSRange)) == 0) {
         NSRange value = (NSRange)va_arg(v, NSRange);
         object = [NSValue valueWithRange:value];
+    }
+    else if (strcmp(type, @encode(CFRange)) == 0) {
+        CFRange value = (CFRange)va_arg(v, CFRange);
+        object = [NSValue value:&value withObjCType:type];
     }
     else if (strcmp(type, @encode(CGAffineTransform)) == 0) {
         CGAffineTransform value = (CGAffineTransform)va_arg(v, CGAffineTransform);
