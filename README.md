@@ -65,22 +65,25 @@
 
     // Run your application and you'll see:
 
-    🎈-[ViewController viewDidLoad] L.22📍 Write here any as you want!
-    🎈-[ViewController viewDidLoad] L.25📍 obj = <UIView: 0x7ffd7ae1bcd0; frame = (0 0; 414 736); autoresize = W+H; layer = <CALayer: 0x7ffd7ae007a0>>
-    🎈-[ViewController viewDidLoad] L.28📍 point = NSPoint: {12.34, 56.780000000000001}
-    🎈-[ViewController viewDidLoad] L.31📍 size = NSSize: {87.599999999999994, 5.4299999999999997}
-    🎈-[ViewController viewDidLoad] L.34📍 rect = NSRect: {{2.2999999999999998, 4.5}, {5.5999999999999996, 7.7999999999999998}}
-    🎈-[ViewController viewDidLoad] L.37📍 range = NSRange: {3, 56}
-    🎈-[ViewController viewDidLoad] L.40📍 affineTransform = CGAffineTransform: {{1, 2, 3, 4}, {5, 6}}
-    🎈-[ViewController viewDidLoad] L.43📍 edgeInsets = UIEdgeInsets: {3, 4, 5, 6}
-    🎈-[ViewController viewDidLoad] L.46📍 sel = viewDidLoad
-    🎈-[ViewController viewDidLoad] L.49📍 class = UIBarButtonItem
-    🎈-[ViewController viewDidLoad] L.52📍 i = 231
-    🎈-[ViewController viewDidLoad] L.55📍 f = 2.718281828459045
-    🎈-[ViewController viewDidLoad] L.58📍 b = YES
-    🎈-[ViewController viewDidLoad] L.61📍 c = S
+    🎈-[ViewController viewDidLoad] L.23📍 obj = <UIView: 0x7fd1c9d33070; frame = (0 0; 414 736); autoresize = W+H; layer = <CALayer: 0x7fd1c9d30d20>>
+    🎈-[ViewController viewDidLoad] L.26📍 point = NSPoint: {12.34, 56.780000000000001}
+    🎈-[ViewController viewDidLoad] L.29📍 size = NSSize: {87.599999999999994, 5.4299999999999997}
+    🎈-[ViewController viewDidLoad] L.32📍 rect = NSRect: {{2.2999999999999998, 4.5}, {5.5999999999999996, 7.7999999999999998}}
+    🎈-[ViewController viewDidLoad] L.35📍 range = NSRange: {3, 56}
+    🎈-[ViewController viewDidLoad] L.38📍 affineTransform = CGAffineTransform: {{1, 2, 3, 4}, {5, 6}}
+    🎈-[ViewController viewDidLoad] L.41📍 edgeInsets = UIEdgeInsets: {3, 4, 5, 6}
+    🎈-[ViewController viewDidLoad] L.44📍 sel = viewDidLoad
+    🎈-[ViewController viewDidLoad] L.47📍 class = UIBarButtonItem
+    🎈-[ViewController viewDidLoad] L.50📍 i = 231
+    🎈-[ViewController viewDidLoad] L.53📍 f = 2.718281828459045
+    🎈-[ViewController viewDidLoad] L.56📍 b = YES
+    🎈-[ViewController viewDidLoad] L.59📍 c = S
+    🎈-[ViewController viewDidLoad] L.61📍 You can use macro LxPrintAnyMark print any without quotation as you want!
+    🎈-[ViewController viewDidLoad] L.63📍 Print format string you customed: CGAffineTransform: {{1, 2, 3, 4}, {5, 6}}
+    2015-10-24 10:28:43.359 LxDBAnythingDemo[892:13210] Even use normal NSLog function to print: UIEdgeInsets: {3, 4, 5, 6}
 
-    //  Different make log experience!
+
+    //  Different debug log experience!
 
 ### License
     LxDBAnything is available under the MIT License. See the LICENSE file for more info.
