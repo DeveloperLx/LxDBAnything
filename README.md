@@ -53,13 +53,13 @@
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
     LxDBAnyVar(colorSpaceRef);
 
+    ............
+
     LxPrintAnything(You can use macro LxPrintAnything() print any without quotation as you want!);
 
     LxPrintf(@"Print format string you customed: %@", LxBox(affineTransform));
 
     NSLog(@"Even use normal NSLog function to print: %@", LxBox(edgeInsets));
-            
-    ......
 
     // Run your application and you'll see:
 
