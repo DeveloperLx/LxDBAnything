@@ -25,7 +25,8 @@
 
 #endif
 
-#define LxBox(var) _LxBox(@encode(__typeof__((var))), (var))
+#define LxBox(var) __lx_box(@encode(__typeof__((var))), (var))
+#define LxBoxToString(var)  [LxBox(var) description]
 
 #ifdef DEBUG
     #define LxPrintf(fmt, ...)  printf("🎈%s + %d📍 %s\n", __PRETTY_FUNCTION__, __LINE__, [[NSString stringWithFormat:fmt, ##__VA_ARGS__]UTF8String])
@@ -37,7 +38,7 @@
     #define LxPrintAnything(x)
 #endif
 
-static inline id _LxBox(const char * type, ...)
+static inline id __lx_box(const char * type, ...)
 {
     va_list variable_param_list;
     va_start(variable_param_list, type);
