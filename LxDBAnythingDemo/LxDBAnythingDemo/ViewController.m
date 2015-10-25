@@ -58,7 +58,10 @@
     char c = 'S';
     LxDBAnyVar(c);
     
-    LxPrintAnySymbol(You can use macro LxPrintAnySymbol print any without quotation as you want!);
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    LxDBAnyVar(colorSpaceRef);
+    
+    LxPrintAnything(You can use macro LxPrintAnything() print any without quotation as you want!);
     
     LxPrintf(@"Print format string you customed: %@", LxBox(affineTransform));
     

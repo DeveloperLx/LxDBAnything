@@ -10,27 +10,31 @@
 #define LxDBAnything_h
 
 #if TARGET_OS_IPHONE
+
     #define LxEdgeInsets    UIEdgeInsets
     #define LxOffset        UIOffset
     #define valueWithLxOffset   valueWithUIOffset
     #define valueWithLxEdgeInsets   valueWithUIEdgeInsets
+
 #elif TARGET_OS_MAC
+
     #define LxEdgeInsets    NSEdgeInsets
     #define LxOffset        NSOffset
     #define valueWithLxOffset   valueWithNSOffset
     #define valueWithLxEdgeInsets   valueWithNSEdgeInsets
+
 #endif
 
-#define LxBox(value) _LxBox(@encode(__typeof__((value))), (value))
+#define LxBox(var) _LxBox(@encode(__typeof__((var))), (var))
 
 #ifdef DEBUG
     #define LxPrintf(fmt, ...)  printf("🎈%s + %d📍 %s\n", __PRETTY_FUNCTION__, __LINE__, [[NSString stringWithFormat:fmt, ##__VA_ARGS__]UTF8String])
-    #define LxDBAnyVar(any)     LxPrintf(@"%s = %@", #any, LxBox(any))
-    #define LxPrintAnySymbol(x)   printf("🎈%s + %d📍 %s\n", __PRETTY_FUNCTION__, __LINE__, #x)
+    #define LxDBAnyVar(var)     LxPrintf(@"%s = %@", #var, LxBox(var))
+    #define LxPrintAnything(x)   printf("🎈%s + %d📍 %s\n", __PRETTY_FUNCTION__, __LINE__, #x)
 #else
     #define LxPrintf(fmt, ...)
     #define LxDBAnyVar(any)
-    #define LxPrintAnySymbol(x)
+    #define LxPrintAnything(x)
 #endif
 
 static inline id _LxBox(const char * type, ...)
@@ -41,112 +45,116 @@ static inline id _LxBox(const char * type, ...)
     id object = nil;
     
     if (strcmp(type, @encode(id)) == 0) {
-        id value = va_arg(variable_param_list, id);
-        object = value;
+        id param = va_arg(variable_param_list, id);
+        object = param;
     }
     else if (strcmp(type, @encode(CGPoint)) == 0) {
-        CGPoint value = (CGPoint)va_arg(variable_param_list, CGPoint);
-        object = [NSValue valueWithCGPoint:value];
+        CGPoint param = (CGPoint)va_arg(variable_param_list, CGPoint);
+        object = [NSValue valueWithCGPoint:param];
     }
     else if (strcmp(type, @encode(CGSize)) == 0) {
-        CGSize value = (CGSize)va_arg(variable_param_list, CGSize);
-        object = [NSValue valueWithCGSize:value];
+        CGSize param = (CGSize)va_arg(variable_param_list, CGSize);
+        object = [NSValue valueWithCGSize:param];
     }
     else if (strcmp(type, @encode(CGVector)) == 0) {
-        CGVector value = (CGVector)va_arg(variable_param_list, CGVector);
-        object = [NSValue valueWithCGVector:value];
+        CGVector param = (CGVector)va_arg(variable_param_list, CGVector);
+        object = [NSValue valueWithCGVector:param];
     }
     else if (strcmp(type, @encode(CGRect)) == 0) {
-        CGRect value = (CGRect)va_arg(variable_param_list, CGRect);
-        object = [NSValue valueWithCGRect:value];
+        CGRect param = (CGRect)va_arg(variable_param_list, CGRect);
+        object = [NSValue valueWithCGRect:param];
     }
     else if (strcmp(type, @encode(NSRange)) == 0) {
-        NSRange value = (NSRange)va_arg(variable_param_list, NSRange);
-        object = [NSValue valueWithRange:value];
+        NSRange param = (NSRange)va_arg(variable_param_list, NSRange);
+        object = [NSValue valueWithRange:param];
     }
     else if (strcmp(type, @encode(CFRange)) == 0) {
-        CFRange value = (CFRange)va_arg(variable_param_list, CFRange);
-        object = [NSValue value:&value withObjCType:type];
+        CFRange param = (CFRange)va_arg(variable_param_list, CFRange);
+        object = [NSValue value:&param withObjCType:type];
     }
     else if (strcmp(type, @encode(CGAffineTransform)) == 0) {
-        CGAffineTransform value = (CGAffineTransform)va_arg(variable_param_list, CGAffineTransform);
-        object = [NSValue valueWithCGAffineTransform:value];
+        CGAffineTransform param = (CGAffineTransform)va_arg(variable_param_list, CGAffineTransform);
+        object = [NSValue valueWithCGAffineTransform:param];
     }
     else if (strcmp(type, @encode(CATransform3D)) == 0) {
-        CATransform3D value = (CATransform3D)va_arg(variable_param_list, CATransform3D);
-        object = [NSValue valueWithCATransform3D:value];
+        CATransform3D param = (CATransform3D)va_arg(variable_param_list, CATransform3D);
+        object = [NSValue valueWithCATransform3D:param];
     }
     else if (strcmp(type, @encode(SEL)) == 0) {
-        SEL value = (SEL)va_arg(variable_param_list, SEL);
-        object = NSStringFromSelector(value);
+        SEL param = (SEL)va_arg(variable_param_list, SEL);
+        object = NSStringFromSelector(param);
     }
     else if (strcmp(type, @encode(Class)) == 0) {
-        Class value = (Class)va_arg(variable_param_list, Class);
-        object = NSStringFromClass(value);
+        Class param = (Class)va_arg(variable_param_list, Class);
+        object = NSStringFromClass(param);
     }
     else if (strcmp(type, @encode(LxOffset)) == 0) {
-        LxOffset value = (LxOffset)va_arg(variable_param_list, LxOffset);
-        object = [NSValue valueWithLxOffset:value];
+        LxOffset param = (LxOffset)va_arg(variable_param_list, LxOffset);
+        object = [NSValue valueWithLxOffset:param];
     }
     else if (strcmp(type, @encode(LxEdgeInsets)) == 0) {
-        LxEdgeInsets value = (LxEdgeInsets)va_arg(variable_param_list, LxEdgeInsets);
-        object = [NSValue valueWithLxEdgeInsets:value];
+        LxEdgeInsets param = (LxEdgeInsets)va_arg(variable_param_list, LxEdgeInsets);
+        object = [NSValue valueWithLxEdgeInsets:param];
     }
     else if (strcmp(type, @encode(short)) == 0) {
-        short value = (short)va_arg(variable_param_list, int);
-        object = @(value);
+        short param = (short)va_arg(variable_param_list, int);
+        object = @(param);
     }
     else if (strcmp(type, @encode(int)) == 0) {
-        int value = (int)va_arg(variable_param_list, int);
-        object = @(value);
+        int param = (int)va_arg(variable_param_list, int);
+        object = @(param);
     }
     else if (strcmp(type, @encode(long)) == 0) {
-        long value = (long)va_arg(variable_param_list, long);
-        object = @(value);
+        long param = (long)va_arg(variable_param_list, long);
+        object = @(param);
     }
     else if (strcmp(type, @encode(long long)) == 0) {
-        long long value = (long long)va_arg(variable_param_list, long long);
-        object = @(value);
+        long long param = (long long)va_arg(variable_param_list, long long);
+        object = @(param);
     }
     else if (strcmp(type, @encode(float)) == 0) {
-        float value = (float)va_arg(variable_param_list, double);
-        object = @(value);
+        float param = (float)va_arg(variable_param_list, double);
+        object = @(param);
     }
     else if (strcmp(type, @encode(double)) == 0) {
-        double value = (double)va_arg(variable_param_list, double);
-        object = @(value);
+        double param = (double)va_arg(variable_param_list, double);
+        object = @(param);
     }
     else if (strcmp(type, @encode(BOOL)) == 0) {
-        BOOL value = (BOOL)va_arg(variable_param_list, int);
-        object = value ? @"YES" : @"NO";
+        BOOL param = (BOOL)va_arg(variable_param_list, int);
+        object = param ? @"YES" : @"NO";
     }
     else if (strcmp(type, @encode(bool)) == 0) {
-        bool value = (bool)va_arg(variable_param_list, int);
-        object = value ? @"true" : @"false";
+        bool param = (bool)va_arg(variable_param_list, int);
+        object = param ? @"true" : @"false";
     }
     else if (strcmp(type, @encode(char)) == 0) {
-        char value = (char)va_arg(variable_param_list, int);
-        object = [NSString stringWithFormat:@"%c", value];
+        char param = (char)va_arg(variable_param_list, int);
+        object = [NSString stringWithFormat:@"%c", param];
     }
     else if (strcmp(type, @encode(unsigned short)) == 0) {
-        unsigned short value = (unsigned short)va_arg(variable_param_list, unsigned int);
-        object = @(value);
+        unsigned short param = (unsigned short)va_arg(variable_param_list, unsigned int);
+        object = @(param);
     }
     else if (strcmp(type, @encode(unsigned int)) == 0) {
-        unsigned int value = (unsigned int)va_arg(variable_param_list, unsigned int);
-        object = @(value);
+        unsigned int param = (unsigned int)va_arg(variable_param_list, unsigned int);
+        object = @(param);
     }
     else if (strcmp(type, @encode(unsigned long)) == 0) {
-        unsigned long value = (unsigned long)va_arg(variable_param_list, unsigned long);
-        object = @(value);
+        unsigned long param = (unsigned long)va_arg(variable_param_list, unsigned long);
+        object = @(param);
     }
     else if (strcmp(type, @encode(unsigned long long)) == 0) {
-        unsigned long long value = (unsigned long long)va_arg(variable_param_list, unsigned long long);
-        object = @(value);
+        unsigned long long param = (unsigned long long)va_arg(variable_param_list, unsigned long long);
+        object = @(param);
     }
     else if (strcmp(type, @encode(unsigned char)) == 0) {
-        unsigned char value = (unsigned char)va_arg(variable_param_list, unsigned int);
-        object = [NSString stringWithFormat:@"%c", value];
+        unsigned char param = (unsigned char)va_arg(variable_param_list, unsigned int);
+        object = [NSString stringWithFormat:@"%c", param];
+    }
+    else {
+        void * param = (void *)va_arg(variable_param_list, void *);
+        object = [NSString stringWithFormat:@"%p", param];
     }
     
     va_end(variable_param_list);
