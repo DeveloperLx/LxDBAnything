@@ -9,6 +9,8 @@
 #ifndef LxDBAnything_h
 #define LxDBAnything_h
 
+#import <UIKit/UIKit.h>
+
 #if TARGET_OS_IPHONE
 
     #define LxEdgeInsets    UIEdgeInsets
