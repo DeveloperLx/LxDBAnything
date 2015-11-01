@@ -61,11 +61,31 @@
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
     LxDBAnyVar(colorSpaceRef);
     
+    //  ......
+    
     LxPrintAnything(You can use macro LxPrintAnything() print any without quotation as you want!);
     
     LxPrintf(@"Print format string you customed: %@", LxBox(affineTransform));
     
     NSLog(@"Even use normal NSLog function to print: %@", LxBox(edgeInsets));
+    
+    LxPrintf(@"The type of obj is %@", LxTypeStringOfVar(obj));
+    LxPrintf(@"The type of point is %@", LxTypeStringOfVar(point));
+    LxPrintf(@"The type of size is %@", LxTypeStringOfVar(size));
+    LxPrintf(@"The type of rect is %@", LxTypeStringOfVar(rect));
+    LxPrintf(@"The type of range is %@", LxTypeStringOfVar(range));
+    LxPrintf(@"The type of affineTransform is %@", LxTypeStringOfVar(affineTransform));
+    LxPrintf(@"The type of edgeInsets is %@", LxTypeStringOfVar(edgeInsets));
+    LxPrintf(@"The type of class is %@", LxTypeStringOfVar(class));
+    LxPrintf(@"The type of i is %@", LxTypeStringOfVar(i));
+    LxPrintf(@"The type of f is %@", LxTypeStringOfVar(f));
+    LxPrintf(@"The type of b is %@", LxTypeStringOfVar(b));
+    LxPrintf(@"The type of c is %@", LxTypeStringOfVar(c));
+    LxPrintf(@"The type of colorSpaceRef is %@", LxTypeStringOfVar(colorSpaceRef));
+        
+//    LxPrintf(@"--------%@", LxTypeStringOfVar2(colorSpaceRef));
+    
+    //  ......
 }
 
 @end

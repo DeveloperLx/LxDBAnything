@@ -27,8 +27,11 @@
 
 #endif
 
-#define LxBox(var) __lx_box(@encode(__typeof__((var))), (var))
-#define LxBoxToString(var)  [LxBox(var) description]
+#define stringify               __STRING
+#define LxType(var)             __typeof__((var))
+#define LxBox(var)              __lx_box(@encode(LxType(var)), (var))
+#define LxBoxToString(var)      [LxBox(var) description]
+#define LxTypeStringOfVar(var)  __lx_type_string_for_var(@encode(LxType(var)), (var))
 
 #ifdef DEBUG
     #define LxPrintf(fmt, ...)  printf("🎈%s + %d📍 %s\n", __PRETTY_FUNCTION__, __LINE__, [[NSString stringWithFormat:fmt, ##__VA_ARGS__]UTF8String])
@@ -163,6 +166,191 @@ static inline id __lx_box(const char * type, ...)
     va_end(variable_param_list);
     
     return object;
+}
+
+static inline char __lx_first_char_for_string(const char * string)
+{
+    if (strlen(string) > 0) {
+        return string[0];
+    }
+    else {
+        return '\0';
+    }
+}
+
+static inline char __lx_last_char_for_string(const char * string)
+{
+    if (strlen(string) > 0) {
+        return string[strlen(string) - 1];
+    }
+    else {
+        return '\0';
+    }
+}
+
+static inline NSString * __lx_type_string_for_var(const char * type, ...)
+{
+    va_list variable_param_list;
+    va_start(variable_param_list, type);
+    
+    NSString * typeString = nil;
+    
+    if (strcmp(type, @encode(id)) == 0) {
+        
+        id param = va_arg(variable_param_list, id);
+        typeString = NSStringFromClass([param class]);
+    }
+    else if (strcmp(type, @encode(CGPoint)) == 0) {
+        
+        typeString = @stringify(CGPoint);
+    }
+    else if (strcmp(type, @encode(CGSize)) == 0) {
+        
+        typeString = @stringify(CGSize);
+    }
+    else if (strcmp(type, @encode(CGVector)) == 0) {
+
+        typeString = @stringify(CGVector);
+    }
+    else if (strcmp(type, @encode(CGRect)) == 0) {
+
+        typeString = @stringify(CGRect);
+    }
+    else if (strcmp(type, @encode(NSRange)) == 0) {
+
+        typeString = @stringify(NSRange);
+    }
+    else if (strcmp(type, @encode(CFRange)) == 0) {
+
+        typeString = @stringify(CFRange);
+    }
+    else if (strcmp(type, @encode(CGAffineTransform)) == 0) {
+
+        typeString = @stringify(CGAffineTransform);
+    }
+    else if (strcmp(type, @encode(CATransform3D)) == 0) {
+
+        typeString = @stringify(CATransform3D);
+    }
+    else if (strcmp(type, @encode(SEL)) == 0) {
+
+        typeString = @stringify(SEL);
+    }
+    else if (strcmp(type, @encode(Class)) == 0) {
+
+        typeString = @stringify(Class);
+    }
+    else if (strcmp(type, @encode(LxOffset)) == 0) {
+
+        typeString = @stringify(LxOffset);
+    }
+    else if (strcmp(type, @encode(LxEdgeInsets)) == 0) {
+
+        typeString = @stringify(LxEdgeInsets);
+    }
+    else if (strcmp(type, @encode(short)) == 0) {
+       
+        typeString = @stringify(short);
+    }
+    else if (strcmp(type, @encode(int)) == 0) {
+     
+        typeString = @stringify(int);
+    }
+    else if (strcmp(type, @encode(long)) == 0) {
+      
+        typeString = @stringify(long);
+    }
+    else if (strcmp(type, @encode(long long)) == 0) {
+     
+        typeString = @stringify(long long);
+    }
+    else if (strcmp(type, @encode(float)) == 0) {
+ 
+        typeString = @stringify(float);
+    }
+    else if (strcmp(type, @encode(double)) == 0) {
+     
+        typeString = @stringify(double);
+    }
+    else if (strcmp(type, @encode(long double)) == 0) {
+        
+        typeString = @stringify(long double);
+    }
+    else if (strcmp(type, @encode(BOOL)) == 0) {
+
+        typeString = @stringify(BOOL);
+    }
+    else if (strcmp(type, @encode(bool)) == 0) {
+
+        typeString = @stringify(bool);
+    }
+    else if (strcmp(type, @encode(char)) == 0) {
+
+        typeString = @stringify(char);
+    }
+    else if (strcmp(type, @encode(unsigned short)) == 0) {
+
+        typeString = @stringify(unsigned short);
+    }
+    else if (strcmp(type, @encode(unsigned int)) == 0) {
+
+        typeString = @stringify(unsigned int);
+    }
+    else if (strcmp(type, @encode(unsigned long)) == 0) {
+ 
+        typeString = @stringify(unsigned long);
+    }
+    else if (strcmp(type, @encode(unsigned long long)) == 0) {
+
+        typeString = @stringify(unsigned long long);
+    }
+    else if (strcmp(type, @encode(unsigned char)) == 0) {
+
+        typeString = @stringify(unsigned char);
+    }
+    else if (strcmp(type, @encode(char *)) == 0) {
+        
+        typeString = @stringify(char *);
+    }
+    else if (strcmp(type, @encode(void)) == 0) {
+        
+        typeString = @stringify(void);
+    }
+    else if (strcmp(type, @encode(void *)) == 0) {
+        
+        typeString = @stringify(void *);
+    }
+    else if (__lx_first_char_for_string(type) == '[' && __lx_last_char_for_string(type) == ']') {
+    
+        typeString = @stringify(array);
+    }
+    else if (__lx_first_char_for_string(type) == '{' && __lx_last_char_for_string(type) == '}') {
+        
+        typeString = @stringify(struct);
+    }
+    else if (__lx_first_char_for_string(type) == '(' && __lx_last_char_for_string(type) == ')') {
+        
+        typeString = @stringify(union);
+    }
+    else if (__lx_first_char_for_string(type) == '^') {
+        
+        typeString = @stringify(pointer);
+    }
+    else if (__lx_first_char_for_string(type) == 'b') {
+        
+        typeString = @stringify(bit_field);
+    }
+    else if (strcmp(type, "?") == 0) {
+        
+        typeString = @stringify(unknown_type);
+    }
+    else {
+        typeString = @"Can not distinguish temporarily!😂";
+    }
+    
+    va_end(variable_param_list);
+    
+    return typeString;
 }
 
 #endif /* LxDBAnything_h */
