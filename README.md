@@ -1,5 +1,5 @@
 # LxDBAnything
-    Print log without any format control symbol! Change debug habit thoroughly!
+    Tell you the type of any variable! Print log without any format control symbol! Change debug habit thoroughly! 
 
 ### Installation
     You only need drag LxDBAnything.h to your project.
