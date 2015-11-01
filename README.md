@@ -61,6 +61,20 @@
 
     NSLog(@"Even use normal NSLog function to print: %@", LxBox(edgeInsets));
 
+    LxPrintf(@"The type of obj is %@", LxTypeStringOfVar(obj));
+    LxPrintf(@"The type of point is %@", LxTypeStringOfVar(point));
+    LxPrintf(@"The type of size is %@", LxTypeStringOfVar(size));
+    LxPrintf(@"The type of rect is %@", LxTypeStringOfVar(rect));
+    LxPrintf(@"The type of range is %@", LxTypeStringOfVar(range));
+    LxPrintf(@"The type of affineTransform is %@", LxTypeStringOfVar(affineTransform));
+    LxPrintf(@"The type of edgeInsets is %@", LxTypeStringOfVar(edgeInsets));
+    LxPrintf(@"The type of class is %@", LxTypeStringOfVar(class));
+    LxPrintf(@"The type of i is %@", LxTypeStringOfVar(i));
+    LxPrintf(@"The type of f is %@", LxTypeStringOfVar(f));
+    LxPrintf(@"The type of b is %@", LxTypeStringOfVar(b));
+    LxPrintf(@"The type of c is %@", LxTypeStringOfVar(c));
+    LxPrintf(@"The type of colorSpaceRef is %@", LxTypeStringOfVar(colorSpaceRef));
+
     // Run your application and you'll see:
 
     🎈-[ViewController viewDidLoad] + 23📍 obj = <UIView: 0x7fea036172a0; frame = (0 0; 414 736); autoresize = W+H; layer = <CALayer: 0x7fea03616340>>
@@ -80,6 +94,19 @@
     🎈-[ViewController viewDidLoad] + 64📍 You can use macro LxPrintAnything() print any without quotation as you want!
     🎈-[ViewController viewDidLoad] + 66📍 Print format string you customed: CGAffineTransform: {{1, 2, 3, 4}, {5, 6}}
     2015-10-25 14:47:05.523 LxDBAnythingDemo[896:26493] Even use normal NSLog function to print: UIEdgeInsets: {3, 4, 5, 6}
+    🎈-[ViewController viewDidLoad] + 72📍 The type of obj is UIView
+    🎈-[ViewController viewDidLoad] + 73📍 The type of point is CGPoint
+    🎈-[ViewController viewDidLoad] + 74📍 The type of size is CGSize
+    🎈-[ViewController viewDidLoad] + 75📍 The type of rect is CGRect
+    🎈-[ViewController viewDidLoad] + 76📍 The type of range is NSRange
+    🎈-[ViewController viewDidLoad] + 77📍 The type of affineTransform is CGAffineTransform
+    🎈-[ViewController viewDidLoad] + 78📍 The type of edgeInsets is LxEdgeInsets
+    🎈-[ViewController viewDidLoad] + 79📍 The type of class is Class
+    🎈-[ViewController viewDidLoad] + 80📍 The type of i is long
+    🎈-[ViewController viewDidLoad] + 81📍 The type of f is double
+    🎈-[ViewController viewDidLoad] + 82📍 The type of b is BOOL
+    🎈-[ViewController viewDidLoad] + 83📍 The type of c is char
+    🎈-[ViewController viewDidLoad] + 84📍 The type of colorSpaceRef is pointer
 
     //  Different debug log experience!
 
