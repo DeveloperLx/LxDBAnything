@@ -4,6 +4,9 @@
 ### Installation
     You only need drag LxDBAnything.h to your project.
 
+### Podfile
+    pod 'LxDBAnything', '~> 1.0.0'
+
 ### Support
     Minimum support iOS version: iOS 6.0
 
