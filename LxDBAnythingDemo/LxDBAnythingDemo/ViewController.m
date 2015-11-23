@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "LxDBAnything.h"
+#import "TestModel.h"
 
 @interface ViewController ()
 
@@ -67,7 +68,7 @@
     
     LxPrintf(@"Print format string you customed: %@", LxBox(affineTransform));
     
-    NSLog(@"Even use normal NSLog function to print: %@", LxBox(edgeInsets));
+    NSLog(@"Even use general NSLog function to print: %@", LxBox(edgeInsets));
     
     LxPrintf(@"The type of obj is %@", LxTypeStringOfVar(obj));
     LxPrintf(@"The type of point is %@", LxTypeStringOfVar(point));
@@ -82,10 +83,24 @@
     LxPrintf(@"The type of b is %@", LxTypeStringOfVar(b));
     LxPrintf(@"The type of c is %@", LxTypeStringOfVar(c));
     LxPrintf(@"The type of colorSpaceRef is %@", LxTypeStringOfVar(colorSpaceRef));
-        
-//    LxPrintf(@"--------%@", LxTypeStringOfVar2(colorSpaceRef));
     
     //  ......
+    
+    TestModel * testModel = [[TestModel alloc]init];
+    testModel.array = @[@1, @"fewfwe", @{@21423.654:@[@"fgewgweg", [UIView new]]}, @YES];
+    testModel.dictionary = @{@YES:@[[UITableViewCell new], @"fgewgweg", @-543.64]};
+    testModel.set = [NSSet setWithObjects:@NO, @4.325, @{@"fgewgweg":[UIView new]}, nil];
+    testModel.orderSet = [NSOrderedSet orderedSetWithObjects:@{@21423.654:@[@"fgewgweg", [UIView new]]}, @1, @"fewfwe", @YES, nil];
+    
+    LxDBObjectAsJson(testModel);
+    LxDBObjectAsXml(testModel);
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    LxDBViewHierarchy(self.view.window);    
 }
 
 @end

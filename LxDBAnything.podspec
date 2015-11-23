@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "LxDBAnything"
-  s.version      = "1.0.0"
+  s.version      = "1.1.0"
   s.summary      = "Tell you the type of any variable! Print log without any format control symbol! Change debug habit thoroughly!"
 
   s.homepage     = "https://github.com/DeveloperLx/LxDBAnything"

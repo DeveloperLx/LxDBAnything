@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6A4A9841C022B7E007A44DA /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A4A9831C022B7E007A44DA /* TestModel.m */; };
 		B6AED7591BDA98EC00B43E02 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AED7581BDA98EC00B43E02 /* main.m */; };
 		B6AED75C1BDA98EC00B43E02 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AED75B1BDA98EC00B43E02 /* AppDelegate.m */; };
 		B6AED75F1BDA98EC00B43E02 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AED75E1BDA98EC00B43E02 /* ViewController.m */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B6A4A9821C022B7E007A44DA /* TestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestModel.h; sourceTree = "<group>"; };
+		B6A4A9831C022B7E007A44DA /* TestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModel.m; sourceTree = "<group>"; };
 		B6AED7541BDA98EC00B43E02 /* LxDBAnythingDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LxDBAnythingDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6AED7581BDA98EC00B43E02 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B6AED75A1BDA98EC00B43E02 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -64,6 +67,8 @@
 				B6AED75B1BDA98EC00B43E02 /* AppDelegate.m */,
 				B6AED75D1BDA98EC00B43E02 /* ViewController.h */,
 				B6AED75E1BDA98EC00B43E02 /* ViewController.m */,
+				B6A4A9821C022B7E007A44DA /* TestModel.h */,
+				B6A4A9831C022B7E007A44DA /* TestModel.m */,
 				B6AED7571BDA98EC00B43E02 /* Supporting Files */,
 			);
 			path = LxDBAnythingDemo;
@@ -154,6 +159,7 @@
 				B6AED75F1BDA98EC00B43E02 /* ViewController.m in Sources */,
 				B6AED75C1BDA98EC00B43E02 /* AppDelegate.m in Sources */,
 				B6AED7591BDA98EC00B43E02 /* main.m in Sources */,
+				B6A4A9841C022B7E007A44DA /* TestModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
