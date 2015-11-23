@@ -88,6 +88,8 @@
 
     LxDBObjectAsJson(testModel);
     LxDBObjectAsXml(testModel);
+    
+    LxDBViewHierarchy(self.view.window);
 
     // Run your application and you'll see:
 
