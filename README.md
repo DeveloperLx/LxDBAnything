@@ -11,7 +11,7 @@
     Minimum support iOS version: iOS 6.0
 
 ### Usage
-
+```objc
     #import "LxDBAnything.h"
 
     id obj = self.view;
@@ -247,6 +247,6 @@
     2＃         <_UILayoutGuide: 0x7ff8ba534d40; frame = (0 736; 0 0); hidden = YES; layer = <CALayer: 0x7ff8ba534ec0>>
 
     //  Different debug log experience!
-
+```objc
 ### License
     LxDBAnything is available under the MIT License. See the LICENSE file for more info.
